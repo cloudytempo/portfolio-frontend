@@ -1,0 +1,19 @@
+.drawer-menu{
+    width: 60px;
+    background-color: cornflowerblue;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+}
+
+.drawer-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.bottom-list {
+  margin-top: auto;
+}

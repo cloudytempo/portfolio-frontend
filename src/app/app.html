@@ -1,1 +1,34 @@
-<router-outlet />
+<mat-drawer-container class="example-container" autosize hasBackdrop="false">
+  <mat-drawer #drawer mode="push" opened class="drawer-menu" fixedInViewport="true">
+    <div class="drawer-content">
+      
+      <!-- Top list -->
+      <mat-list>
+        @for (folder of topFolders; track folder) {
+          <mat-list-item>
+            <mat-icon matListItemIcon>{{ folder.icon }}</mat-icon>
+            <div matListItemTitle>{{ folder.name }}</div>
+          </mat-list-item>
+        }
+      </mat-list>
+
+      <!-- Bottom list -->
+      <div class="bottom-list">
+        <mat-divider></mat-divider>
+        <mat-list>
+          @for (folder of bottomFolders; track folder) {
+            <mat-list-item>
+              <mat-icon matListItemIcon>{{ folder.icon }}</mat-icon>
+              <div matListItemTitle>{{ folder.name }}</div>
+            </mat-list-item>
+          }
+        </mat-list>
+      </div>
+
+    </div>
+  </mat-drawer>
+
+  <mat-drawer-content style="padding: 1%;">
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
